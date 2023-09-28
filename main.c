@@ -1,43 +1,23 @@
 #include <stdio.h>
+#include <limits.h>
 
 int main(){
-        signed char      	chA;
-        unsigned char 		chB;
+        //char
+        printf("Signed char MIN = %hhd, signed char MAX = %hhd\n", CHAR_MIN, CHAR_MAX);
+        printf("Unsigned char MIN = %hhd, unsigned char MAX = %d\n\n", UCHAR_MAX-UCHAR_MAX, UCHAR_MAX);
+        
+        //int
+        printf("Signed int MIN = %d, signed int MAX = %d\n", INT_MIN, INT_MAX);
+        printf("Unsigned int MIN = %d, unsigned int MAX = %u\n\n", UINT_MAX-UINT_MAX, UINT_MAX);
 
-        signed int 		inA;
-        unsigned int 		inB;
+        printf("Signed short MIN = %hd, signed short MAX = %hd\n", SHRT_MIN, SHRT_MAX);
+        printf("Unsigned short MIN = %hd, unsigned short MAX = %hu\n\n", USHRT_MAX-USHRT_MAX, USHRT_MAX);
 
-        signed short int 	inC;
-        unsigned short int 	inD;
+        printf("Signed long MIN = %ld, signed long MAX = %ld\n", LONG_MIN, LONG_MAX);
+        printf("Unsigned long MIN = %ld, unsigned long MAX = %lu\n\n", ULONG_MAX-ULONG_MAX, ULONG_MAX);
 
-        signed long int 	inE;
-        unsigned long int 	inF;
-
-        signed long long int 	inG;
-        unsigned long long int  inH;
-
-        float 			flA;
-        double 			dbA;
-        long double 		dbB;
-
-        printf("Signed char = %ld\n", sizeof(chA));
-        printf("Unsigned char = %ld\n", sizeof(chB));
-
-        printf("Signed int = %ld\n", sizeof(inA));
-        printf("Unsigned int = %ld\n", sizeof(inB));
-
-        printf("Signed short int = %ld\n", sizeof(inC));
-        printf("Unsigned short int = %ld\n", sizeof(inD));
-
-        printf("Signed long int = %ld\n", sizeof(inE));
-        printf("Unsigned long int = %ld\n", sizeof(inF));
-
-        printf("Signed long long int = %ld\n", sizeof(inG));
-        printf("Unsigned long long int = %ld\n", sizeof(inH));
-
-        printf("float = %ld\n", sizeof(flA));
-        printf("double = %ld\n", sizeof(dbA));
-        printf("long double = %ld\n", sizeof(dbB));
+        printf("Signed long long MIN = %lld, signed long long MAX = %lld\n", LLONG_MIN, LLONG_MAX);
+        printf("Unsigned long long MIN = %lld, unsigned long long MAX = %llu\n\n", ULLONG_MAX-ULLONG_MAX, ULLONG_MAX);
 
         return 0;
 }
