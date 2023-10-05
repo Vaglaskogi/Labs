@@ -1,24 +1,32 @@
+/******************************//*!
+ * \file
+ * \brief	main файл проектов Labs
+ * \author	Николай Букатин
+ * \date	Создан: 04.10.2023
+ * \date	Изменён: 04.10.2023
+ */
+
 #include <stdio.h>
-#include <limits.h>
+#include <stddef.h>
+#include "labs.h"
 
-int main(){
-        //char
-        printf("Signed char MIN = %hhd, signed char MAX = %hhd\n", CHAR_MIN, CHAR_MAX);
-        printf("Unsigned char MIN = %hhd, unsigned char MAX = %d\n\n", UCHAR_MAX-UCHAR_MAX, UCHAR_MAX);
-        
-        //int
-        printf("Signed int MIN = %d, signed int MAX = %d\n", INT_MIN, INT_MAX);
-        printf("Unsigned int MIN = %d, unsigned int MAX = %u\n\n", UINT_MAX-UINT_MAX, UINT_MAX);
+/*
+ *	Data definition:
+ */
 
-        printf("Signed short MIN = %hd, signed short MAX = %hd\n", SHRT_MIN, SHRT_MAX);
-        printf("Unsigned short MIN = %hd, unsigned short MAX = %hu\n\n", USHRT_MAX-USHRT_MAX, USHRT_MAX);
 
-        printf("Signed long MIN = %ld, signed long MAX = %ld\n", LONG_MIN, LONG_MAX);
-        printf("Unsigned long MIN = %ld, unsigned long MAX = %lu\n\n", ULONG_MAX-ULONG_MAX, ULONG_MAX);
+/*
+ *	Function(s) definition:
+ */
 
-        printf("Signed long long MIN = %lld, signed long long MAX = %lld\n", LLONG_MIN, LLONG_MAX);
-        printf("Unsigned long long MIN = %lld, unsigned long long MAX = %llu\n\n", ULLONG_MAX-ULLONG_MAX, ULLONG_MAX);
-
-        return 0;
+int main(int argc, char const *argv[])
+{
+	char string[256];
+	char a,b;
+	gets(string);
+	scanf("%c\n", &a);
+	scanf("%c", &b);
+	replace(string,a,b);
+	printf("%s\n", string);
+	return 0;
 }
-

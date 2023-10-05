@@ -1,8 +1,6 @@
-TARGET = main.o
-
-$(TARGET): main.c
-	gcc -o $@ -Wall -pedantic $<
+main.o: main.c lab.c
+	gcc -o $@ -Wall -pedantic $^
 	./$@
 
 clean:
-	rm -rf *.o $(TARGET)
+	rm -rf *.o main.o
