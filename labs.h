@@ -3,10 +3,11 @@
  * \author	Николай Букатин
  */
 
-#ifndef _NAME_H
-#define _NAME_H
+#ifndef _LABS_H
+#define _LABS_H
 
 #include <stddef.h>
+#include <stdio.h>
 
 
 
@@ -16,9 +17,26 @@
 
 
 
+
 /*
  *	Type declaration
  */
+
+
+
+struct tStruct
+{
+	int a;
+	double d;
+	short b;
+	int c;
+};
+
+struct _valuePrint_
+{
+	void *p;
+	int type;
+};
 
 
 
@@ -35,7 +53,8 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-	void replace(char *, char, char);
+void funcA(struct tStruct );
+void funcB(struct tStruct *);
 #ifdef __cplusplus
 }
 #endif

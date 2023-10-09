@@ -6,6 +6,7 @@
  * \date	Изменён:
  */
 
+
 #include "labs.h"
 
 /*
@@ -24,13 +25,15 @@
 	\param[in]	b	...
 	\return			...
 */
-void replace(char *string1, char a, char b){
-	while(*string1 != NULL){
-		if (*string1 == a)
-		{
-			*string1 = b;
-		}
-		string1++;
-	}
-}
+// void funcA(struct tStruct name){
+// 	name.a = 101;
+// 	name.b = 201;
+// 	name.c = 'B';
+// }
+
+// void funcB(struct tStruct *name){
+// 	name->a = 101;
+// 	name->b = 201;
+// 	name->c = 'B';
+// }
 
