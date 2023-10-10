@@ -25,15 +25,23 @@
 	\param[in]	b	...
 	\return			...
 */
-// void funcA(struct tStruct name){
-// 	name.a = 101;
-// 	name.b = 201;
-// 	name.c = 'B';
-// }
 
-// void funcB(struct tStruct *name){
-// 	name->a = 101;
-// 	name->b = 201;
-// 	name->c = 'B';
-// }
+void printInt(void *pr){
+	printf("%d\n", *(int *)pr);
+}
 
+void printDbl(void *pr){
+	printf("%.0f\n", *(double *)pr);
+}
+
+void printSrt(void *pr){
+	printf("%hd\n", *(short *)pr);
+}
+
+int sumVal(int a, int b){
+	return a+b;
+}
+
+int diffVal(int a, int b){
+	return a-b;
+}

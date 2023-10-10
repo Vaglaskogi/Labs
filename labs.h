@@ -23,20 +23,28 @@
  */
 
 
-
 struct tStruct
 {
-	int a;
-	double d;
-	short b;
-	int c;
+	int 	a;
+	double 	d;
+	short 	b;
+	int 	c;
 };
 
-struct _valuePrint_
+struct _node_
 {
-	void *p;
-	int type;
+	struct _node_ *next;
+	struct _node_ *prev;
+	void *pr;
+	void (*type)(void *);
 };
+
+struct _list_
+{
+	struct _node_ *head;
+	struct _node_ *tail;
+};
+
 
 
 
@@ -53,8 +61,9 @@ struct _valuePrint_
 #ifdef __cplusplus
 extern "C" {
 #endif
-void funcA(struct tStruct );
-void funcB(struct tStruct *);
+void printInt(void *);
+void printDbl(void *);
+void printSrt(void *);
 #ifdef __cplusplus
 }
 #endif

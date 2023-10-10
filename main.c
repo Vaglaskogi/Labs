@@ -12,40 +12,33 @@
  *	Data definition:
  */
 
+struct tStruct sam = {11, 12, 13, 14};
+ 
 
-
-struct tStruct sam = {11,12,13,14};
-struct _valuePrint_ val [4] = {
-	{&sam.a, 0},
-	{&sam.d, 1},
-	{&sam.b, 2},
-	{&sam.c, 0}
+struct _node_ val[] = {
+	{val+1, NULL,	&sam.a, &printInt}, 
+	{val+2,	val, 	&sam.d, &printDbl},
+	{val+3,	val+1, 	&sam.b, &printSrt},
+	{NULL, 	val+2, 	&sam.c, &printInt}
 };
-struct _valuePrint_ *p = val;
-struct _valuePrint_ *end = &val[3];
+struct _node_ *p = val;
 
-
+struct _list_ zas = {val,val+((sizeof(val)/sizeof(val[0]))-1)};
 
 /*
  *	Function(s) definition:
  */
 
-int main(int argc, char const *argv[])
-{
-	for (; p <= end; p++) {
-		switch ( p->type ) {
-			case 0:
-				printf("%d\n", *( int * )(p->p) );
-				break;
-			case 1:
-				printf("%.0f\n", *( double * )(p->p) );
-				break;
-			case 2:
-				printf("%hd\n", *( short * )(p->p) );
-				break;
-			default:
-				break;
-		}
+int main()
+{	
+	while (p){
+		p->type(p->pr);
+		p = p->next;
+	}
+	p = zas.tail;
+	while (p){
+		p->type(p->pr);
+		p = p->prev;
 	}
 	return 0;
 }
