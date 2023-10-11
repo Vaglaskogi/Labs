@@ -26,22 +26,41 @@
 	\return			...
 */
 
-void printInt(void *pr){
-	printf("%d\n", *(int *)pr);
+void printInt(const char *format, void *pr)
+{
+	printf(format, *(int *)pr);
 }
 
-void printDbl(void *pr){
-	printf("%.0f\n", *(double *)pr);
+void printDbl(const char *format, void *pr){
+	printf(format, *(double *)pr);
 }
 
-void printSrt(void *pr){
-	printf("%hd\n", *(short *)pr);
+void printSrt(const char *format, void *pr){
+	printf(format, *(short *)pr);
 }
 
-int sumVal(int a, int b){
+void printFlt(const char *format, void *pr){
+	printf(format, *(float *)pr);
+}
+
+int sumVal(int a, int b)
+{
 	return a+b;
 }
 
-int diffVal(int a, int b){
+int diffVal(int a, int b)
+{
 	return a-b;
+}
+
+int calcVal(int a, int b)
+{
+	int temp;
+	if (a>b){
+		temp = diffVal(a,b);
+	}
+	else{
+		temp = sumVal(a,b);
+	}
+	return temp;
 }

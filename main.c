@@ -7,22 +7,23 @@
  */
 
 #include "labs.h"
+#include <string.h>
 
 /*
  *	Data definition:
  */
 
-struct tStruct sam = {11, 12, 13, 14};
+struct tStruct sam = {100, 222, 1, 2.2312};
  
 
 struct _node_ val[] = {
-	{val+1, NULL,	&sam.a, &printInt}, 
-	{val+2,	val, 	&sam.d, &printDbl},
-	{val+3,	val+1, 	&sam.b, &printSrt},
-	{NULL, 	val+2, 	&sam.c, &printInt}
+	{val+1, NULL,	&sam.a, "%d\n", printInt}, 
+	{val+2,	val, 	&sam.d, "%.0f\n", printDbl},
+	{val+3,	val+1, 	&sam.b, "%hd\n", printSrt},
+	{NULL, 	val+2, 	&sam.c, "%.4f\n", printFlt}
 };
-struct _node_ *p = val;
 
+struct _node_ *p = val;
 struct _list_ zas = {val,val+((sizeof(val)/sizeof(val[0]))-1)};
 
 /*
@@ -32,13 +33,8 @@ struct _list_ zas = {val,val+((sizeof(val)/sizeof(val[0]))-1)};
 int main()
 {	
 	while (p){
-		p->type(p->pr);
+		p->func(p->lp,p->pr);
 		p = p->next;
-	}
-	p = zas.tail;
-	while (p){
-		p->type(p->pr);
-		p = p->prev;
-	}
+	}	
 	return 0;
 }

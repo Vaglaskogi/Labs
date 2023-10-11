@@ -7,7 +7,13 @@
 #define _LABS_H
 
 #include <stddef.h>
+#include <stdlib.h>
 #include <stdio.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+
 
 
 
@@ -28,7 +34,7 @@ struct tStruct
 	int 	a;
 	double 	d;
 	short 	b;
-	int 	c;
+	float 	c;
 };
 
 struct _node_
@@ -36,7 +42,8 @@ struct _node_
 	struct _node_ *next;
 	struct _node_ *prev;
 	void *pr;
-	void (*type)(void *);
+	const char *lp;
+	void (*func)(const char *, void *);
 };
 
 struct _list_
@@ -61,9 +68,13 @@ struct _list_
 #ifdef __cplusplus
 extern "C" {
 #endif
-void printInt(void *);
-void printDbl(void *);
-void printSrt(void *);
+void printInt(const char *, void *);
+void printDbl(const char *, void *);
+void printSrt(const char *, void *);
+void printFlt(const char *, void *);
+int sumVal(int, int);
+int diffVal(int, int);
+int calcVal(int, int);
 #ifdef __cplusplus
 }
 #endif
