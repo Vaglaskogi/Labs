@@ -16,7 +16,6 @@
 
 
 
-
 /*
  *	Macros definition
  */
@@ -29,6 +28,9 @@
  */
 
 
+typedef void (*func_t) (const char *, void *);
+typedef struct _node_ * node_t;
+
 struct tStruct
 {
 	int 	a;
@@ -39,11 +41,11 @@ struct tStruct
 
 struct _node_
 {
-	struct _node_ *next;
-	struct _node_ *prev;
-	void *pr;
-	const char *lp;
-	void (*func)(const char *, void *);
+	node_t 		next;
+	node_t 		prev;
+	void *		pr;
+	const char* 	frmt;
+	func_t 		func;
 };
 
 struct _list_
@@ -51,7 +53,6 @@ struct _list_
 	struct _node_ *head;
 	struct _node_ *tail;
 };
-
 
 
 
@@ -68,10 +69,10 @@ struct _list_
 #ifdef __cplusplus
 extern "C" {
 #endif
-void printInt(const char *, void *);
-void printDbl(const char *, void *);
-void printSrt(const char *, void *);
-void printFlt(const char *, void *);
+void printInt(const char *, int *);
+void printDbl(const char *, double *);
+void printSrt(const char *, short *);
+void printFlt(const char *, float *);
 int sumVal(int, int);
 int diffVal(int, int);
 int calcVal(int, int);

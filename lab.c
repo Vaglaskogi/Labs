@@ -26,21 +26,21 @@
 	\return			...
 */
 
-void printInt(const char *format, void *pr)
+void printInt(const char *format, int *pr)
 {
-	printf(format, *(int *)pr);
+	printf(format, *pr);
 }
 
-void printDbl(const char *format, void *pr){
-	printf(format, *(double *)pr);
+void printDbl(const char *format, double *pr){
+	printf(format, *pr);
 }
 
-void printSrt(const char *format, void *pr){
-	printf(format, *(short *)pr);
+void printSrt(const char *format, short *pr){
+	printf(format, *pr);
 }
 
-void printFlt(const char *format, void *pr){
-	printf(format, *(float *)pr);
+void printFlt(const char *format, float *pr){
+	printf(format, *pr);
 }
 
 int sumVal(int a, int b)
