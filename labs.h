@@ -3,6 +3,8 @@
  * \author	Николай Букатин
  */
 
+
+
 #ifndef _LABS_H
 #define _LABS_H
 
@@ -20,18 +22,17 @@
  *	Macros definition
  */
 
-
-
+typedef void (*func_t) (const char *, void *);
+typedef void* (*func_str_t) (char *);
+typedef struct _node_ * node_t;
 
 /*
  *	Type declaration
  */
 
 
-typedef void (*func_t) (const char *, void *);
-typedef struct _node_ * node_t;
 
-struct tStruct
+struct _data_
 {
 	int 	a;
 	double 	d;
@@ -43,7 +44,7 @@ struct _node_
 {
 	node_t 		next;
 	node_t 		prev;
-	void *		pr;
+	void *		param;
 	const char* 	frmt;
 	func_t 		func;
 };
@@ -54,6 +55,12 @@ struct _list_
 	struct _node_ *tail;
 };
 
+
+typedef int T;
+ 
+#define CMP_EQ(a, b) ((a) == (b))
+#define CMP_LT(a, b) ((a) < (b))
+#define CMP_GT(a, b) ((a) > (b))
 
 
 /*
@@ -69,13 +76,19 @@ struct _list_
 #ifdef __cplusplus
 extern "C" {
 #endif
-void printInt(const char *, int *);
-void printDbl(const char *, double *);
-void printSrt(const char *, short *);
-void printFlt(const char *, float *);
-int sumVal(int, int);
-int diffVal(int, int);
-int calcVal(int, int);
+void print_int(const char *, int *);
+void print_dbl(const char *, double *);
+void print_srt(const char *, short *);
+void print_flt(const char *, float *);
+int* str_to_int(char *);
+double* str_to_double(char *);
+short* str_to_short(char *);
+float* str_to_float(char *);
+
+
+int sum_val(int, int);
+int diff_val(int, int);
+int calc_val(int, int);
 #ifdef __cplusplus
 }
 #endif

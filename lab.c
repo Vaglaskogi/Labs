@@ -18,7 +18,6 @@
  *	Function(s) definition:
  */
 
-
 /******************************//*!
 	Описание
 	\param[out]	a	...
@@ -26,41 +25,80 @@
 	\return			...
 */
 
-void printInt(const char *format, int *pr)
+void print_int(const char *format, int *pr)
 {
 	printf(format, *pr);
 }
 
-void printDbl(const char *format, double *pr){
+void print_dbl(const char *format, double *pr)
+{
 	printf(format, *pr);
 }
 
-void printSrt(const char *format, short *pr){
+void print_srt(const char *format, short *pr)
+{
 	printf(format, *pr);
 }
 
-void printFlt(const char *format, float *pr){
-	printf(format, *pr);
+void print_flt(const char *format, float *pr)
+{
+	printf(format, (double)*pr);
 }
 
-int sumVal(int a, int b)
+int* str_to_int(char *ptr)
+{
+	int *result = (int*) malloc(sizeof(int));
+	if ( result != NULL ) {
+		*result = (int) strtol(ptr, NULL, 0);
+	}
+	return result;
+}
+
+double* str_to_double(char *ptr)
+{
+	double *result = (double*) malloc(sizeof(double)); 
+	if ( result != NULL ) {
+		*result = strtof(ptr, NULL);
+	}
+	return result;
+}
+
+short* str_to_short(char *ptr)
+{
+	short *result = (short*) malloc(sizeof(short));
+	if ( result != NULL ) {
+		*result = (short) strtol(ptr, NULL, 0);
+	}
+	return result;
+}
+
+float* str_to_float(char *ptr)
+{
+	float *result = (float*) malloc(sizeof(float));
+	if ( result != NULL ) {
+		*result = (float) strtof(ptr, NULL);
+	}
+	return result;
+}
+
+int sum_val(int a, int b)
 {
 	return a+b;
 }
 
-int diffVal(int a, int b)
+int diff_val(int a, int b)
 {
 	return a-b;
 }
 
-int calcVal(int a, int b)
+int calc_val(int a, int b)
 {
-	int temp;
+	int result;
 	if (a>b){
-		temp = diffVal(a,b);
+		result = diff_val(a,b);
 	}
 	else{
-		temp = sumVal(a,b);
+		result = sum_val(a,b);
 	}
-	return temp;
+	return result;
 }
